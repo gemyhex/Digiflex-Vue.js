@@ -1,0 +1,47 @@
+[
+    {
+        "id": 0,
+        "imgSrc": "http://digiflex.themezinho.net/wp-content/uploads/2020/12/slide01.jpg",
+        "release": "new releases",
+        "title": "inside women",
+        "rate": 4.8,
+        "rateBrand": "IMDb",
+        "pYear": 2020,
+        "quality": "4K",
+        "watch": "Ultra HD",
+        "duration": "1hr 21min",
+        "type": "CC",
+        "department": "Action",
+        "description": "That is, until she plays her first game of chess. While working as a handyman in an old house, an ex-convict discovers countless horrors revolving around a town’s twisted secrets."
+    },
+    {
+        "id": 1,
+        "imgSrc": "http://digiflex.themezinho.net/wp-content/uploads/2020/12/slide02.jpg",
+        "release": "new releases",
+        "title": "sovit: the cold war",
+        "rate": 7.1,
+        "rateBrand": "IMDb",
+        "pYear": 2019,
+        "quality": "8K",
+        "watch": "Ultra HD",
+        "duration": "1hr 45min",
+        "type": "CC",
+        "department": "War",
+        "description": "Her senses grow sharper, her thinking clearer, and for the first time in her life she feels herself fully in control. By the age of sixteen, she's competing for the U.S."
+    },
+    {
+        "id": 2,
+        "imgSrc": "http://digiflex.themezinho.net/wp-content/uploads/2020/12/slide03.jpg",
+        "release": "new releases",
+        "title": "future hell",
+        "rate": 5.6,
+        "rateBrand": "IMDb",
+        "pYear": 2020,
+        "quality": "4K",
+        "watch": "Ultra HD",
+        "duration": "1hr 33min",
+        "type": "CC",
+        "department": "Adventure",
+        "description": "Based on Edgar Allan Poe's classic bone-chilling tale, will have you sleeping with the lights on for years to come. Nine year-old orphan Beth Harmon is quiet"
+    }
+]
