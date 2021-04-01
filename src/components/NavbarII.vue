@@ -7,11 +7,25 @@
       <div class="links">
         <ul>
           <li>
-            <router-link to="/" class="active">home</router-link>
+            <router-link to="/" class="active" @click="window.location.reload()"
+              >home</router-link
+            >
           </li>
-          <li><router-link to="/movies">movies</router-link></li>
-          <li><router-link to="/tvshows">tv shows</router-link></li>
-          <li><router-link to="/blog">blog</router-link></li>
+          <li>
+            <router-link to="/movies" @click="window.location.reload()"
+              >movies</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/tvshows" @click="window.location.reload()"
+              >tv shows</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/blog" @click="window.location.reload()"
+              >blog</router-link
+            >
+          </li>
         </ul>
       </div>
       <div class="user-options">
@@ -22,7 +36,11 @@
           <li>
             <a href="#"><i class="fa fa-bookmark"></i></a>
           </li>
-          <li><router-link to="login">account</router-link></li>
+          <li>
+            <router-link to="login" @click="window.location.reload()"
+              >account</router-link
+            >
+          </li>
         </ul>
       </div>
       <a href="javascript:void(0);" class="icon" @click="openMenu()">
