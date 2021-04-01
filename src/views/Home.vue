@@ -40,12 +40,7 @@
                   </div>
                   <span id="movie-date">{{ slide.pYear }}</span>
                   <span id="quality-wrap">
-                    <span id="movie-quality">
-                      {{ slide.quality }}
-                    </span>
-                    <span id="movie-watch">
-                      {{ slide.watch }}
-                    </span>
+                    {{ slide.quality }}
                   </span>
 
                   <span id="movie-duration">
@@ -317,6 +312,7 @@ export default {
       classes: ["page_o", "page_t", "page_th", "page_f"]
     };
   },
+  methods: {},
   computed: {
     getOnineMovies() {
       return this.movies.slice(0, 4);
@@ -340,7 +336,7 @@ export default {
       height: fit-content;
       position: absolute;
       top: 50%;
-      left: 90%;
+      left: 95%;
       margin: 0;
       display: block;
       li {
@@ -351,13 +347,22 @@ export default {
     }
     .carousel-inner {
       .carousel-item {
+        width: 100vw;
         height: 100vh;
         .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba($color: #000000, $alpha: 0.1);
+
           .watch-now {
             width: 175px;
             height: 65px;
             background: red;
             color: #fff;
+            margin-top: 10px;
             border: none;
             font-weight: bold;
             font-size: 17px;
@@ -373,9 +378,10 @@ export default {
         }
 
         .movie-wrap {
+          width: 30%;
           position: absolute;
-          top: 25%;
-          left: 12%;
+          top: 30%;
+          left: 15%;
           text-align: left;
 
           h6 {
@@ -398,22 +404,30 @@ export default {
           .movie-info {
             display: flex;
             padding-top: 10px;
+            overflow-x: hidden;
             span {
-              margin-left: 20px;
+              margin-left: 15px;
             }
             .rate-d {
-              display: inline-block;
+              display: flex;
+
               #movie-rate {
                 width: fit-content;
                 height: fit-content;
                 border-radius: 50%;
+                margin-left: 0;
               }
               #rate {
+                width: fit-content;
+                height: fit-content;
                 border-bottom: 3px solid green;
                 text-align: center;
                 font-weight: bold;
+                margin-left: 0;
               }
               #imdb-stick {
+                width: fit-content;
+                height: fit-content;
                 background: rgb(224, 174, 6);
                 color: black;
                 padding: 2px;
@@ -424,28 +438,27 @@ export default {
             }
 
             #movie-date {
+              width: fit-content;
+              height: fit-content;
               font-weight: bold;
             }
             #quality-wrap {
-              border: 2px solid #fff;
-              font-weight: 500;
+              width: fit-content;
               height: fit-content;
-            }
-            #movie-quality {
-              margin: 0;
-            }
-            #movie-watch {
+              border: 2px solid #fff;
+              font-weight: 700;
               background: #fff;
               color: #000;
-              margin: 0;
             }
+
             #movie-type {
+              width: fit-content;
+              height: fit-content;
               border: 2px solid #fff;
               border-radius: 25px;
               font-size: 0.8rem;
               font-weight: bold;
               padding: 2px 6px;
-              height: fit-content;
             }
             #movie-dept {
               color: red;
@@ -454,7 +467,6 @@ export default {
             }
           }
           #description {
-            width: 50%;
             padding-top: 11px;
             font-weight: 600;
           }
@@ -462,22 +474,8 @@ export default {
       }
     }
   }
-
-  @media screen and (max-width: 600px) {
-    .carousel-item {
-      #description {
-        display: none;
-      }
-    }
-  }
-  @media screen and (min-width: 600px) and (max-width: 768px) {
-    .carousel-item {
-      #description {
-        width: 75% !important;
-      }
-    }
-  }
 }
+
 .streaming-wrapper {
   position: relative;
   padding: 80px 0;
@@ -808,6 +806,76 @@ export default {
               color: #fff;
               line-height: 40px;
               font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .directors-wrapper {
+    .subs-d {
+      input {
+        width: 100% !important;
+      }
+      button {
+        width: 40% !important;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 968px) {
+  .slider-wrapper {
+    .carousel {
+      .carousel-indicators {
+        top: 75% !important;
+      }
+      .carousel-inner {
+        .carousel-item {
+          .movie-wrap {
+            left: 7% !important;
+            h6 {
+              font-size: 1rem;
+            }
+            h2 {
+              font-size: 3rem !important;
+            }
+            #description {
+              font-size: 0.9rem !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 575px) {
+  .slider-wrapper {
+    .carousel {
+      .carousel-indicators {
+        top: 75% !important;
+      }
+      .carousel-inner {
+        .carousel-item {
+          .movie-wrap {
+            left: 7% !important;
+            h6 {
+              font-size: 1rem;
+            }
+            h2 {
+              font-size: 3rem !important;
+            }
+            #description {
+              display: none;
+            }
+            .movie-info {
+              #movie-date {
+                display: block !important;
+              }
             }
           }
         }

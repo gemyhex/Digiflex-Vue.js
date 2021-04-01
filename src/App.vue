@@ -5,12 +5,20 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
+import Navbar from "./components/NavbarII.vue";
 import pageLoader from "./views/PageLoader.vue";
 export default {
   components: {
     Navbar,
     pageLoader
+  },
+  methods: {
+    openMenu() {
+      document.getElementsByClassName(".side-wrapper").style.width = "75%";
+    },
+    closeMenu() {
+      document.getElementsByClassName(".side-wrapper").style.width = "0";
+    }
   }
 };
 </script>
