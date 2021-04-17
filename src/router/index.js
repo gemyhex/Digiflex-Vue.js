@@ -5,6 +5,7 @@ import TvShows from "../views/TvShows.vue";
 import Blog from "../views/Blog.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
+import Bookmarks from "../views/Bookmarks.vue";
 
 const routes = [
   {
@@ -36,6 +37,17 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register
+  },
+  {
+    path: "/bookmarks",
+    name: "Bookmarks",
+    component: Bookmarks
+  },
+  {
+    path: "/movie-preview/:id",
+    name: "moviePreview",
+    component: () => import("../views/MoviePreview.vue"),
+    props: true
   }
 ];
 

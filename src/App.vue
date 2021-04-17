@@ -2,15 +2,19 @@
   <pageLoader />
   <navbar />
   <router-view />
+  <!-- <p-footer /> -->
 </template>
 
 <script>
 import Navbar from "./components/NavbarII.vue";
 import pageLoader from "./views/PageLoader.vue";
+// import pFooter from "./components/Footer.vue";
+
 export default {
   components: {
     Navbar,
     pageLoader
+    // pFooter
   },
   methods: {
     openMenu() {

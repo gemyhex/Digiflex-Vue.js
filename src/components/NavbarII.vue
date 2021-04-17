@@ -34,7 +34,9 @@
             <a href="#"><i class="fa fa-search"></i></a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-bookmark"></i></a>
+            <router-link to="/bookmarks"
+              ><i class="fa fa-bookmark"></i
+            ></router-link>
           </li>
           <li>
             <router-link to="login" @click="window.location.reload()"
@@ -104,11 +106,11 @@ export default {
   width: 100%;
   height: 100px;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: transparent;
-  z-index: 999;
+  z-index: 99;
   padding: 20px;
   .top-nav {
     display: flex;

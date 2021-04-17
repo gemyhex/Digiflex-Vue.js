@@ -31,7 +31,7 @@
     <div class="blogs-wrap pt-5">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 posts">
+          <div class="col-lg-8 col-md-12 col-sm-12 posts">
             <div class="row">
               <div
                 class="col-lg-12 blog-post mt-5 mb-5"
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 articles pt-5 pl-5">
+          <div class="col-lg-4 col-md-12 col-sm-12 articles pt-5 pl-5">
             <div class="search">
               <input
                 type="search"
@@ -334,6 +334,25 @@ export default {
           p {
             padding-left: 14px;
             font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .blogs-wrapper {
+    .blogs-wrap {
+      .posts {
+        .blog-post {
+          .overlay {
+            .cont {
+              a {
+                width: 80%;
+                font-size: 2rem;
+              }
+            }
           }
         }
       }

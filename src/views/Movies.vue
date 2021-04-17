@@ -19,9 +19,7 @@
                 </ol>
               </nav>
               <h2>Movies <span>.</span></h2>
-              <p>
-                All new released Hollywood and world movies here to watch
-              </p>
+              <p>All new released Hollywood and world movies here to watch</p>
             </div>
           </div>
         </div>
@@ -30,130 +28,93 @@
     <div class="movies-wrap">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 shuffle-list">
-            <ul class="list-unstyled">
-              <li>&larr;</li>
-              <li
-                @click="
-                  shuffleMovies('page_o');
-                  window.location.reload();
-                "
-              >
-                1
-              </li>
-              <li
-                @click="
-                  shuffleMovies('page_t');
-                  window.location.reload();
-                "
-              >
-                2
-              </li>
-              <li
-                @click="
-                  shuffleMovies('page_th');
-                  window.location.reload();
-                "
-              >
-                3
-              </li>
-              <li
-                @click="
-                  shuffleMovies('page_f');
-                  window.location.reload();
-                "
-              >
-                4
-              </li>
-              <li>&rarr;</li>
-            </ul>
+          <div class="col-lg-12">
+            <button @click="showModel = true" id="add-movie">
+              (+) add movie
+            </button>
           </div>
         </div>
-        <div class="row shuffle-items" v-if="rowClass === 'page_o'">
-          <div
-            class="col-lg-4 col-md-6 pt-5 m-item"
-            v-for="movie in getMoviesRowsOne"
-            :key="movie.id"
-          >
-            <div class="item-img">
-              <img :src="movie.imgSrc" alt="" />
-            </div>
-            <div class="mov-i">
-              <span>{{ movie.movieDate }}</span>
-              <span id="mov-t">{{ movie.movieCat }}</span>
-              <span id="mov-d">{{ movie.movieQuality }}</span>
-              <h5>
-                <a href="#">{{ movie.movieName }}</a>
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="row shuffle-items" v-if="rowClass === 'page_t'">
-          <div
-            class="col-lg-4 col-md-6 pt-5 m-item"
-            v-for="movie in getMoviesRowsTwo"
-            :key="movie.id"
-          >
-            <div class="item-img">
-              <img :src="movie.imgSrc" alt="" />
-            </div>
-            <div class="mov-i">
-              <span>{{ movie.movieDate }}</span>
-              <span id="mov-t">{{ movie.movieCat }}</span>
-              <span id="mov-d">{{ movie.movieQuality }}</span>
-              <h5>
-                <a href="#">{{ movie.movieName }}</a>
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="row shuffle-items" v-if="rowClass === 'page_th'">
-          <div
-            class="col-lg-4 col-md-6 pt-5 m-item"
-            v-for="movie in getMoviesRowsThree"
-            :key="movie.id"
-          >
-            <div class="item-img">
-              <img :src="movie.imgSrc" alt="" />
-            </div>
-            <div class="mov-i">
-              <span>{{ movie.movieDate }}</span>
-              <span id="mov-t">{{ movie.movieCat }}</span>
-              <span id="mov-d">{{ movie.movieQuality }}</span>
-              <h5>
-                <a href="#">{{ movie.movieName }}</a>
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="row shuffle-items" v-if="rowClass === 'page_f'">
-          <div
-            class="col-lg-4 col-md-6 pt-5 m-item"
-            v-for="movie in getMoviesRowsFour"
-            :key="movie.id"
-          >
-            <div class="item-img">
-              <img :src="movie.imgSrc" alt="" />
-            </div>
-            <div class="mov-i">
-              <span>{{ movie.movieDate }}</span>
-              <span id="mov-t">{{ movie.movieCat }}</span>
-              <span id="mov-d">{{ movie.movieQuality }}</span>
-              <h5>
-                <a href="#">{{ movie.movieName }}</a>
-              </h5>
-            </div>
-          </div>
+
+        <div class="row shuffle-items">
+          <movie v-for="movie in movies" :key="movie.id" :movie="movie"></movie>
         </div>
       </div>
     </div>
   </div>
+
+  <model v-if="showModel" @close="showModel = !showModel">
+    <template v-slot:header>
+      <h3>Create New Movie</h3>
+    </template>
+
+    <template v-slot:body>
+      <form @submit.prevent="addMovie" ref="movieForm" id="movie-form">
+        <p>Please Fill The Data Below</p>
+        <input
+          v-model="movieForm.movieName"
+          type="text"
+          required
+          placeholder="MovieName"
+        />
+        <input
+          v-model="movieForm.imgSrc"
+          type="text"
+          required
+          placeholder="Movie Poster Url"
+        />
+        <input
+          v-model="movieForm.movieDate"
+          type="text"
+          required
+          placeholder="MovieDate"
+        />
+        <input
+          v-model="movieForm.movieCat"
+          type="text"
+          required
+          placeholder="MovieCat"
+        />
+        <input
+          v-model="movieForm.movieQuality"
+          type="text"
+          required
+          placeholder="MovieQuality"
+        />
+        <input
+          v-model="movieForm.seasons"
+          type="text"
+          required
+          placeholder="Seasons"
+        />
+
+        <textarea
+          v-model="movieForm.movieDesc"
+          rows="6"
+          required
+          placeholder="Movie Description"
+        ></textarea>
+      </form>
+    </template>
+
+    <template v-slot:footer>
+      <button id="add-movie" @click="$refs.movieForm.requestSubmit()">
+        Add
+      </button>
+    </template>
+  </model>
 </template>
 
 <style lang="scss" scoped>
 .movies-wrapper-d {
+  position: relative;
+  background: #fff;
+  padding: 0;
+  padding-bottom: 400px;
   .page-head {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 0;
     height: 400px;
     .breadcrumb {
@@ -186,11 +147,30 @@
   }
 
   .movies-wrap {
+    position: relative;
+    top: 400px;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    padding-top: 40px;
+    padding-bottom: 80px;
+
+    #add-movie {
+      float: right;
+      border: 1px solid white;
+      padding: 15px 25px;
+      background: red;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: capitalize;
+      color: #fff;
+    }
     .shuffle-list {
       ul {
         width: fit-content;
         display: flex;
-        margin: 10px auto;
+        margin: 50px 0;
+
         li {
           height: 100%;
           border: 1px solid rgb(238, 238, 238);
@@ -236,6 +216,20 @@
               font-size: 1rem;
             }
           }
+          #btnaddfav {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: bold;
+            background: #333;
+            color: #fff;
+            padding: 15px 35px;
+            border: 1px solid #333;
+            &:hover {
+              background: red;
+              transition: 0.6s all ease;
+              border: 1px solid red;
+            }
+          }
         }
       }
     }
@@ -244,33 +238,62 @@
 </style>
 
 <script>
-import movies from "../data/movies.json";
+import Movie from "./Movie.vue";
+import Model from "../components/Model.vue";
 export default {
   data() {
     return {
-      Movies: movies,
-      rowClass: "page_o"
+      showModel: false,
+      movies: [],
+      rowClass: "page_o",
+      favorites: [],
+      movieForm: {
+        movieName: "",
+        imgSrc: "",
+        movieDate: "",
+        movieCat: "",
+        movieQuality: "",
+        movieDesc: "",
+        seasons: ""
+      }
     };
   },
+  created() {
+    this.movies = this.$store.getters.getMovies;
+  },
   methods: {
-    shuffleMovies(rowclass) {
-      this.rowClass = rowclass;
+    // shuffleMovies(rowclass) {
+    //   this.rowClass = rowclass;
+    // },
+    // addToFav(movie){
+    //   this.favorites.push(movie);
+    // },
+    // removeFromFav(movie){
+    //   this.favorites.splice(this.favorites.indexOf(movie) , 1);
+    // },
+    addMovie(e) {
+      e.preventDefault();
+      this.$store.dispatch("addMovie", this.movieForm);
+      this.showModel = false;
     }
   },
   computed: {
-    getMoviesRowsOne() {
-      return this.Movies.slice(1, 10);
-    },
-    getMoviesRowsTwo() {
-      return this.Movies.slice(11, 20);
-    },
-    getMoviesRowsThree() {
-      return this.Movies.slice(21, 30);
-    },
-    getMoviesRowsFour() {
-      return this.Movies.slice(31, 36);
-    }
+    // getMoviesRowsOne() {
+    //   return this.Movies.slice(1, 10);
+    // },
+    // getMoviesRowsTwo() {
+    //   return this.Movies.slice(11, 20);
+    // },
+    // getMoviesRowsThree() {
+    //   return this.Movies.slice(21, 30);
+    // },
+    // getMoviesRowsFour() {
+    //   return this.Movies.slice(31, 36);
+    // }
   },
-  components: {}
+  components: {
+    Movie,
+    Model
+  }
 };
 </script>

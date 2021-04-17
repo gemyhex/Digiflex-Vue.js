@@ -1,7 +1,6 @@
-[
-    {
+[{
         "id": 0,
-        "imgSrc": "http://digiflex.themezinho.net/wp-content/uploads/2020/12/slide01.jpg",
+        "imgSrc": "slide01.jpg",
         "release": "new releases",
         "title": "inside women",
         "rate": 4.8,
@@ -16,7 +15,7 @@
     },
     {
         "id": 1,
-        "imgSrc": "http://digiflex.themezinho.net/wp-content/uploads/2020/12/slide02.jpg",
+        "imgSrc": "slide02.jpg",
         "release": "new releases",
         "title": "sovit: the cold war",
         "rate": 7.1,
@@ -31,7 +30,7 @@
     },
     {
         "id": 2,
-        "imgSrc": "http://digiflex.themezinho.net/wp-content/uploads/2020/12/slide03.jpg",
+        "imgSrc": "slide03.jpg",
         "release": "new releases",
         "title": "future hell",
         "rate": 5.6,
