@@ -254,8 +254,8 @@ export default {
         movieCat: "",
         movieQuality: "",
         movieDesc: "",
-        seasons: ""
-      }
+        seasons: "",
+      },
     };
   },
   created() {
