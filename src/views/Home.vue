@@ -84,9 +84,9 @@
                 <img :src="require('@/assets/' + movie.imgSrc)" alt="movie" />
                 <div class="overlay">
                   <div class="content">
-                    <p>{{ movie.movieName }}</p>
+                    <p @click="openDetails">{{ movie.movieName }}</p>
                     <span>
-                      <button>
+                      <button @click="openDetails">
                         <i class="fa fa-play"></i>
                       </button>
                       <p>
@@ -254,10 +254,12 @@ export default {
     return {
       sliders: sliderJson,
       movies: [],
-      classes: ["page_o", "page_t", "page_th", "page_f"]
+      classes: ["page_o", "page_t", "page_th", "page_f"],
     };
   },
-  methods: {},
+  methods: {
+    
+  },
   created() {
     this.movies = this.$store.getters.getMovies;
   },
@@ -267,11 +269,11 @@ export default {
     },
     getMovies() {
       return this.movies.slice(0, 8);
-    }
+    },
   },
   components: {
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 

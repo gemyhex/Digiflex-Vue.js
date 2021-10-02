@@ -11,9 +11,7 @@
       <span>{{ movie.movieDate }}</span>
       <span id="mov-t">{{ movie.movieCat }}</span>
       <span id="mov-d">{{ movie.movieQuality }}</span>
-      <h5>
-        <a href="#" @click="openDetails">{{ movie.movieName }}</a>
-      </h5>
+      <h5 @click="openDetails">{{ movie.movieName }} </h5>
       <button id="btnaddfav" @click="addToFav(movie)">add to favorite</button>
     </div>
   </div>
@@ -72,11 +70,10 @@ export default {
       font-weight: bold;
     }
     h5 {
-      a {
-        color: #333;
+      color: #333;
         font-weight: bold;
         font-size: 1rem;
-      }
+        cursor: pointer;
     }
     #btnaddfav {
       text-transform: uppercase;
